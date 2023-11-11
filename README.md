@@ -70,6 +70,13 @@ A larger batch size (number of data point we will leave out) would mean that we 
 
 
 
+## Notes
+
+1. `np.expand_dims(array, axis)` expands the shape of an array. 
+   1. For example, if `array.shape = (3, 4)`, then `np.expand_dims(array, axis=-1).shape = (3, 4, 1)` (adds another dimension in the last position). If `axis=0`, then `np.expand_dims(array, axis=1).shape = (1, 3, 4)`. 
+   2. E.g. `[[1, 2, 3], [4, 5, 6], [7, 8, 9]]` $\rArr$ `[[[1], [2], [3]], [[4], [5], [6]], [[7], [8], [9]]]`
+2. `random.random()` generates a random float number in the range [0.0, 1.0).
+3. Boundaries [~87%, 97.66%] 
 
 
 
@@ -79,3 +86,16 @@ A larger batch size (number of data point we will leave out) would mean that we 
 <!-- [$^1$](#references) -->
 
 [1] https://colab.research.google.com/drive/1pWnuZ4AVZOkh2ZTTp-xtVnnoiTrXCwr6?usp=sharing
+
+
+
+## possibilities
+
+1. train model on all data set then remove some randomely then evaluate then assign a weight to each data point based on the accuracy of the model on the test set. Then remove the data points with the lowest weight and retrain the model and evaluate again. Repeat this process until the accuracy of the model on the test set stops improving. This is a greedy approach.
+2. train model on all data set then assign weight to all data points
+   1. then remove some randomly chosen data pint then reevaluate then update the weight based on the accuracy from the test set. 
+   2. then remove other randomly chosen data point then reevaluate then update the weight based on the accuracy from the test set.
+   3. repeat for n times.
+   4. then remove the data points with the lowest weight and retrain the model and evaluate again. 
+   5. data points with the lowest weight are the ones that are most likely to be mislabelled.
+3. 
