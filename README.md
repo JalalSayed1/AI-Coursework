@@ -16,7 +16,7 @@ of the data is reliable and train the model accordingly. However, it is possible
 contains inaccurate annotation due to human mistakes or even contaminated data. As a result, the
 performance of the trained model will be degraded.
 
-We implemented a simulated workflow of learning with corrupted labels [$^1$](#references), which will act as a starting point for implementing your own solutions.
+We implemented a simulated workflow of learning with corrupted labels [1](#references), which will act as a starting point for implementing your own solutions.
 
 The notebook provides functions to corrupt labels with **common types of mistakes** (specific to this hand-written digit classification task), such as labelling a “3” as a “8” (and vice versa), a “1” as a “4” or “7” etc. A parameter that controls how many annotations will be corrupted in the dataset (i.e., how noisy is the data) by specifying a value for noise probability ($\isin [0, 1]$).
 
