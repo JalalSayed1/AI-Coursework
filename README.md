@@ -23,6 +23,7 @@ The notebook provides functions to corrupt labels with **common types of mistake
 Some utility functions to start the supervised (parametric) training with the (noisy) labelled examples using `trainAndEvaluateModel()` are provided.
 
 Points to note:
+
 1. We are not going to change the model architecture. This is considered frozen.
 2. We are going to investigate if changing the dataset (seeking to leave out the noise from the training set) improves the accuracy over the test set.
 
@@ -52,7 +53,7 @@ In summary, we should implement `myPrunedSubsetMethod(x_train, y_train, model)`.
 
 ### Hints
 
-We can approach this as a "discrete state space optimisation" problem, where firstly we can define a “selection batch size” which decides which batch of instances we’re going to leave out (this is not the same as training batch size). For instance, if we are in a state where the training set is $X$, we may select (by some heuristics) which points we’re gonna leave out (let that set be $\delta_1 \sub X$) so that a child state becomes $X' = X − \delta$.
+We can approach this as a "discrete state space optimisation" problem, where firstly we can define a “selection batch size” which decides which batch of instances we’re going to leave out (this is not the same as training batch size). For instance, if we are in a state where the training set is $X$, we may select (by some heuristics) which points we’re going to leave out (let that set be $\delta \sub X$) so that a child state becomes $X' = X − \delta$.
 
 Similarly, if we choose a different $\delta' \sub X$, we reach a different child state. We then need to train and evaluate to see if that child state led to an improvement or not.
 
@@ -79,15 +80,11 @@ A larger batch size (number of data point we will leave out) would mean that we 
 3. Boundaries [~87%, 97.66%] 
 
 
-
-
 ## References
 
 <!-- [$^1$](#references) -->
 
-[1] https://colab.research.google.com/drive/1pWnuZ4AVZOkh2ZTTp-xtVnnoiTrXCwr6?usp=sharing
-
-
+[1] Accessed Nov 2023 - [https://colab.research.google.com/drive/1pWnuZ4AVZOkh2ZTTp-xtVnnoiTrXCwr6?usp=sharing](https://colab.research.google.com/drive/1pWnuZ4AVZOkh2ZTTp-xtVnnoiTrXCwr6?usp=sharing)
 
 ## possibilities
 
