@@ -1,0 +1,10 @@
+population_size: 10
+selection_size: 5
+mutation_rate: 0.01
+crossover_rate: 0.3
+crossover_points: 3
+generations: 4
+battle_participants: 2
+elite_num: 1
+
+generation,accuracy
