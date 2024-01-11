@@ -1,0 +1,18 @@
+Hyper parameters,Value
+population_size 200
+selection_size 100
+mutation_rate 0.1
+crossover_rate 0.5
+crossover_points 3
+generations 100
+battle_participants 4
+elite_num 1
+
+generation,accuracy
+0,0.7494999766349792
+1,0.7494999766349792
+2,0.7494999766349792
+3,0.7494999766349792
+4,0.7494999766349792
+5,0.7494999766349792
+6,0.7494999766349792
