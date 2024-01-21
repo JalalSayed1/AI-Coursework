@@ -6,7 +6,7 @@ COMPSCI4004 Artificial Intelligence H - Coursework
 
 We will explore an approach to select an optimal set of training instances for supervised learning. Specifically, we are going to work with the MNIST [1](#references) dataset, a popular dataset for hand-written digit recognition. Some examples of the images in the MNIST dataset are illustrated in Figure 1.
 
-![Example of images in the MNIST dataset](./img/Final/example_MNIST_dataset.png)
+![Example of images in the MNIST dataset](./img/example_MNIST_dataset.png)
 
 Figure 1: Examples of the images in the MNIST dataset.
 
@@ -19,7 +19,7 @@ performance of the trained model will be degraded.
 
 We implemented a simulated workflow of learning with corrupted labels [1](#references), which will act as a starting point for implementing your own solutions.
 
-The notebook provides functions to corrupt labels with **common types of mistakes** (specific to this hand-written digit classification task), such as labelling a “3” as a “8” (and vice versa), a “1” as a “4” or “7” etc. A parameter that controls how many annotations will be corrupted in the dataset (i.e., how noisy is the data) by specifying a value for noise probability ($\isin [0, 1]$).
+The notebook provides functions to corrupt labels with **common types of mistakes** (specific to this hand-written digit classification task), such as labelling a “3” as a “8” (and vice versa), a “1” as a “4” or “7” etc. A parameter that controls how many annotations will be corrupted in the dataset (i.e., how noisy is the data) by specifying a value for noise probability ($∈ [0, 1]$).
 
 Some utility functions to start the supervised (parametric) training with the (noisy) labelled examples using `trainAndEvaluateModel()` are provided.
 
@@ -29,14 +29,6 @@ Points to note:
 2. We are going to investigate if changing the dataset (seeking to leave out the noise from the training set) improves the accuracy over the test set.
 
 You don’t need to understand how the classification model really works (it’s a one-layer 2D convolution network, which is covered in the Deep Learning and Computer Vision courses). The model’s reference implementation is to be used only to evaluate the quality of your training data (the better the trained model performs on the test set, the better is the quality of the training set).
-
----
-author:
-
-- Jalal Sayed - 2571964s
-title: AI Coursework - Genetic Algorithm
-
----
 
 # Introduction
 
@@ -65,7 +57,7 @@ I chose to use the Genetic Algorithm to find the best possible state
 states** (in terms of the GA algorithm, they are called individuals in
 the population). The initial states are started almost randomly but not
 quite. Further details about this are discussed later in Section
-[3](#solution design).
+[3](#Algorithm-Design-and-Implementation).
 These initial states create the first population in the generation.
 
 ![State diagram](./img/Final/state_diagram.png)
@@ -81,7 +73,7 @@ progress to the next generation (the subsequent states). Then, to
 re-construct the population, new states are created by performing
 crossover and mutating the *selected* states.
 
-# Algorithm Design and Implementation 
+# Algorithm Design and Implementation
 
 My solution exploits the fact that the MNIST data set has roughly an
 equal number of data points for each digit class. Therefore, after
@@ -152,7 +144,7 @@ def create_population(population_size, input_size, y_train, bias_strength=100):
 The \"Prioritisation scores\" is a dictionary of the weights of every
 digit in the data set. It looks like this:
 
-$\$
+$\{0: 1.09, 1: 1.0, 2: 1.11, 3: 1.08, 4: 1.04, 5: 1.13, 6: 1.17, 7: 1.1, 8: 1.11, 9: 1.12\}$
 
 Where the keys are the digit classes and the values are their weights
 (frequency relative to other classes).
